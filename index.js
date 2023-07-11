@@ -16,5 +16,4 @@ const connectdb = () =>  {
 
 app.listen(8000, () => {
     connectdb()
-    console.log("*****************");
 })  
