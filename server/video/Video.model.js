@@ -17,7 +17,7 @@ const VideoSchema = mongoose.Schema({
         type:String,
         required:true
     },
-    imgUrl: {
+    videoUrl: {
         type:String,
         required:true
     },
@@ -26,6 +26,14 @@ const VideoSchema = mongoose.Schema({
         default:0,
     },
     tags:{
+        type:[String],
+        default:[]
+    },
+    likes:{
+        type:[String],
+        default:[]
+    },
+    dislikes:{
         type:[String],
         default:[]
     },
