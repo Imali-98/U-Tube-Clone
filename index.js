@@ -18,6 +18,8 @@ const connectdb = () =>  {
         throw error
     })
 };
+
+app.use(express.json())
 app.use("/api/auths", authRoutes)
 app.use("/api/users", userRoutes)
 app.use("/api/videos", videoRoutes)
