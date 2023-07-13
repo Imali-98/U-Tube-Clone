@@ -25,6 +25,16 @@ app.use("/api/users", userRoutes)
 app.use("/api/videos", videoRoutes)
 app.use("/api/comments", commentRoutes)
 
+app.use(( error, req, res, next) => {
+    const status = error.status || 500;
+    const message =error.message || "Something went wrong!";
+    return res.status(status).json ({
+        success: false,
+        status,
+        message
+    })
+})
+
 app.listen(8000, () => {
     connectdb()
 })   
