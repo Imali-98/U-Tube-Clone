@@ -15,3 +15,14 @@ export const signup = async (req, res, next) => {
     next(createError(404, "not found sorry!"))
   }
 };
+
+export const signin = async (req, res, next) => {
+  try {
+    const user = await User.findOne ({name:req.body.name})
+    if (!user) return next(createError(404,"User not found"))
+
+    
+  } catch (error) {
+    next(error)
+  }
+};
