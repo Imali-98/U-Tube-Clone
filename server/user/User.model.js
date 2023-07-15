@@ -16,16 +16,16 @@ const UserSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    // img: {
-    //   type: String,
-    // },
-    // subscribers: {
-    //   type: Number,
-    //   default: 0,
-    // },
-    // subscribedUsers: {
-    //   type: Array,
-    // },
+    img: {
+      type: String,
+    },
+    subscribers: {
+      type: Number,
+      default: 0,
+    },
+    subscribedUsers: {
+      type: Array,
+    },
   },
   { timestamps: true }
 );
