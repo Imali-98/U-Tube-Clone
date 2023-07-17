@@ -5,7 +5,7 @@ import { deleteUser, dislike, getUser, like, subscribe, unsubscribe, update } fr
 const router = express.Router();
 
 // update user
-// router.put('/:id',verifyToken, update)
+router.put('/:id',  update)
 
 //delete user
 router.delete('/:id', deleteUser)

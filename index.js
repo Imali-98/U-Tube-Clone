@@ -40,21 +40,3 @@ app.use(( error, req, res, next) => {
 app.listen(8000, () => {
     connectdb()
 })   
-
-
-// import express from "express"
-// import mongoose from "mongoose"
-
-// const app = express()
-
-// const connectdb = () => {
-//     mongoose.connect(process.env.MONGO).then(()=>{
-//     })
-//     .catch((err)=>{
-//         throw err
-//     })
-// }
-
-// app.listen(8800, () =>{
-//     connectdb()
-// })
