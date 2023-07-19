@@ -5,6 +5,7 @@ const router = express.Router();
 
 router.post("/", addVideo)
 router.put("/:id", updateVideo)
+
 router.delete("/:id", deleteVideo)
 router.get("/find/:id", getVideo)
 router.put("/view/:id", getVideo)
