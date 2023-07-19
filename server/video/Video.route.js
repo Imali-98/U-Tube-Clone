@@ -3,9 +3,9 @@ import {  } from "./Video.controller.js"
 
 const router = express.Router();
 
-router.post("/", verifyToken, addVideo)
-router.put("/:id", verifyToken, updateVideo)
-router.delete("/:id", verifyToken, deleteVideo)
+router.post("/", addVideo)
+router.put("/:id", updateVideo)
+router.delete("/:id", deleteVideo)
 router.get("/find/:id", getVideo)
 router.put("/view/:id", getVideo)
 router.get("trend", getVideo)
