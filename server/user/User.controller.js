@@ -17,18 +17,18 @@ export const update = async (req, res, next) => {
   }
 };
 export const deleteUser = async  (req, res, next) => {
-  if (req.params.id === req.user.id) {
-    try {
-      const deleteUser = await User.findByIdAndDelete (
-        req.params.id,
-      );
-      res.status(200).jsonn("User has been deleted!");
-    } catch (err) {
-      next(err);
-    }
-  } else {
-    return next(createError(403, "You can delete only your account!"));
-  }
+  // if (req.params.id === req.user.id) {
+  //   try {
+  //     const deleteUser = await User.findByIdAndDelete (
+  //       req.params.id,
+  //     );
+  //     res.status(200).jsonn("User has been deleted!");
+  //   } catch (err) {
+  //     next(err);
+  //   }
+  // } else {
+  //   return next(createError(403, "You can delete only your account!"));
+  // }
 };
 export const getUser = async (req, res, next) => {
     try{
