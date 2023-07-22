@@ -19,7 +19,7 @@ export const updateVideo = async (req, res, next) => {
         {
           $set: req.body,
         },
-        // { new: true }
+        { new: true }
       );
       res.status(200).json(updatedVideo);
     } else {
