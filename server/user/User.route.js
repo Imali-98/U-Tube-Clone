@@ -1,6 +1,6 @@
 import express from "express"
 import { deleteUser, dislike, getUser, like, subscribe, unsubscribe, update } from "./User.controller.js"
-// import { verifyToken } from "../../verifyToken.js";
+import { verifyToken } from "../../verifyToken.js";
 
 const router = express.Router();
 
