@@ -1,4 +1,5 @@
 import User from "./User.model.js";
+import Video from "../video/Video.model.js";
 
 export const update = async (req, res, next) => {
   if (req.params.id === req.user.id) {
@@ -65,13 +66,29 @@ export const unsubscribe = async (req, res, next) => {
   }
 };
 export const like = async (req, res, next) => {
+  const id = req.user.id;
+  const videoId = req.user.videoId;
   try {
+    await Video.findByIdAndUpdate(videoId,{
+      $addToset: {likes:id},
+      $pull:{dislikes:id}
+    })
+    res.status(200).json("The video has been liked");
+
   } catch (err) {
     next(err);
   }
 };
 export const dislike = async (req, res, next) => {
+  const id = req.user.id;
+  const videoId = req.params.videoId;
   try {
+    await Video.findByIdAndUpdate(videoId,{
+      $addToset: {dislikes:id},
+      $pull:{likes:id}
+    })
+    res.status(200).json("The video has been disliked");
+
   } catch (err) {
     next(err);
   }
