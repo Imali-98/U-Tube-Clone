@@ -23,6 +23,7 @@ export const updateVideo = async (req, res, next) => {
         },
         { new: true }
       );
+      console.log(req.params.id);
       res.status(200).json(updatedVideo);
     } else {
       return next(createError(403, "U can only update your video!"));

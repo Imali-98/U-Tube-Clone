@@ -1,8 +1,9 @@
 import User from "./User.model.js";
 import Video from "../video/Video.model.js";
+import { createError } from "../../error.js";
 
 export const update = async (req, res, next) => {
-  if (req.params.id === req.user.id) {
+  if (req.params.id === req.userId) {
     try {
       const updateUser = await User.findByIdAndUpdate(
         req.params.id,

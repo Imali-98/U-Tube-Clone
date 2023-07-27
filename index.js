@@ -5,7 +5,7 @@ import userRoutes from "../api/server/user/User.route.js"
 import videoRoutes from "../api/server/video/Video.route.js"
 import commentRoutes from "../api/server/comment/Comments.route.js"
 import authRoutes from "../api/server/auth/auth.route.js"
-import cookieParser from "cookie-parser "
+import cookieParser from "cookie-parser"
 
 
 dotenv.config()
