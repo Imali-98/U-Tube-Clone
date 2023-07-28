@@ -1,6 +1,7 @@
-// import { Promise } from "mongoose";
+import pkg from 'mongoose';
 import Video from "./Video.model.js";
 import User from "../user/User.model.js";
+const { Promise } = pkg;
 
 export const addVideo = async (req, res, next) => {
   const newVideo = new Video({ userId: req.user.id, ...req.body });
@@ -86,19 +87,19 @@ export const random = async (req, res, next) => {
 };
 
 export const sub = async (req, res, next) => {
-  //   try{
-  //     const user = await User.findById(req.user.id);
-  //     const subscribedChannels = user.subscribedUsers;
-  //     const list = Promise.all(
-  //       subscribedChannels.map((channelid)=>{
-  //         return Video.find( {userId: channelid})
-  //       })
-  //     )
-  //     res.status(200).json(list.flat().sort(a,b)=>b.createdAt-a.createdAt);
-  //   }
-  //   catch (err) {
-  //     next(err);
-  //   }
+    try{
+      const user = await User.findById(req.user.id);
+      const subscribedChannels = user.subscribedUsers;
+      const list = Promise.all(
+        subscribedChannels.map((channelid)=>{
+          return Video.find( {userId: channelid})
+        })
+        )
+      res.status(200).json(list.flat().sort((a,b)=>(b.createdAt-a.createdAt)));
+    }
+    catch (err) {
+      next(err);
+    }
 };
 
 export const getByTag = async (req, res, next) => {
