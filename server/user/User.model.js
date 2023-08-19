@@ -26,6 +26,10 @@ const UserSchema = mongoose.Schema(
     subscribedUsers: {
       type: Array,
     },
+    fromGoogle:{
+      type:Boolean,
+      default:false,
+    }
   },
   { timestamps: true }
 );

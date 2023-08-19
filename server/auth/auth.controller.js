@@ -50,12 +50,21 @@ export const googleAuth = async (res, req, next) => {
         })
         .status(200)
         .json(user._doc);
-    }else{
+    } else {
       const newUser = new User({
         ...req.body,
-        fromGoogle:true
-        
-      })
+        fromGoogle: true,
+      });
+      const savedUser = await newUser.save();
+      const token = jwt.sign({ id: user._id }, process.env.JWT);
+      res
+        .cookie("access_token", token, {
+          httpOnly: true,
+        })
+        .status(200)
+        .json(savedUser._doc);
     }
-  } catch (err) {}
+  } catch (err) {
+    next(err)
+  }
 };
