@@ -56,7 +56,7 @@ export const googleAuth = async (res, req, next) => {
         fromGoogle: true,
       });
       const savedUser = await newUser.save();
-      const token = jwt.sign({ id: user._id }, process.env.JWT);
+      const token = jwt.sign({ id: savedUser._id }, process.env.JWT);
       res
         .cookie("access_token", token, {
           httpOnly: true,
